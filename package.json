@@ -27,5 +27,10 @@
     "pug",
     "sass",
     "browsersync"
-  ]
+  ],
+  "dependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^1.0.2"
+  }
 }

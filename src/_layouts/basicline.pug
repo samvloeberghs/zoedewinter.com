@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title= title
+        meta(charset="utf-8")
+        base(href="/")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1")
+        link(rel="stylesheet" href="/css/styles.css")
+
+    body(class="line")
+
+        include ../_partials/header
+
+        div(id="wrapper")
+            block content
+
+        include ../_partials/footer
+
+        script(type="text/javascript" src="/js/scripts.js")

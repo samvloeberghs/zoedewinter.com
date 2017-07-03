@@ -5,6 +5,17 @@ body {
 
   font-family: 'Terminal Dosis Light', sans-serif;
 
+  &.line{
+    @media (min-width: 721px) {
+      background: {
+        image: url('/img/line.png');
+        repeat: no-repeat;
+        position: bottom 83px right 50px;
+        attachment: fixed;
+      }
+    }
+  }
+
   &.bg {
     background: {
       color: #ddd;
@@ -45,12 +56,17 @@ header {
     margin: 0;
 
     a {
+      border: none;
       display: block;
       background: url('/img/logo.png') no-repeat;
       background-size: cover;
       height: 38px;
       width: 164px;
       text-indent: -99999px;
+      &:hover,
+      &:active {
+        border: none;
+      }
     }
 
   }
@@ -81,9 +97,12 @@ header {
         background: rgba(255, 255, 255, 0.4);
         padding: 3px 8px;
         display: inline-block;
+        border: none;
 
         &:hover,
+        &:active,
         &.active {
+          border: none;
           text-decoration: line-through;
         }
       }
@@ -151,6 +170,11 @@ header {
       }
       z-index: 1000;
       text-indent: -9999px;
+      border: none;
+      &:hover,
+      &:active {
+        border: none;
+      }
     }
 
     nav {
@@ -307,6 +331,21 @@ header {
     }
   }
 
+}
+
+/* contact */
+.contact {
+  p {
+    line-height: 180%;
+  }
+
+  @media (max-width: 720px) {
+
+    p {
+      text-align: center;
+    }
+
+  }
 }
 
 /*	FOOTER

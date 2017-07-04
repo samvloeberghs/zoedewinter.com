@@ -2,16 +2,13 @@ doctype html
 html
     head
         title= title
-        meta(charset="utf-8")
-        base(href="/")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1")
-        link(rel="stylesheet" href="/css/styles.css")
+        include ../_partials/head
 
-    body(class="bg")
+    body.bg
 
         include ../_partials/header
 
-        div(id="wrapper")
+        div#wrapper
             block content
 
         include ../_partials/footer

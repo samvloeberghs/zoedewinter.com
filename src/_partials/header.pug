@@ -1,12 +1,13 @@
 header
     h1
         a(href="") Zoë De Winter
-    a(href="" class="hamburger") &times
+    a.hamburger(href="") &times
     nav
         ul
             block link
                 -var selected = ''; //default
-            -var menu = { 'Selected work': '', 'Art advisory': 'art-advisory.html', 'About': 'about.html', 'Contact': 'contact.html' };
+            //-var menu = { 'Selected work': 'selected-work.html', 'Art advisory': 'art-advisory.html', 'About': 'about.html', 'Contact': 'contact.html' };
+            -var menu = { 'Selected work': 'selected-work', 'Art advisory': 'art-advisory', 'About': 'about', 'Contact': 'contact' };
             each val, key in menu
                 li
                     if selected === val

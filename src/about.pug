@@ -1,95 +1,97 @@
 extends _layouts/basic
 
 block link
-    -var selected = 'about.html';
+    -var selected = 'about';
 
 block content
     h1 About
 
-    div(class="about")
-        img(src="/img/zoedewinter.jpg" alt="Zoë De Winter")
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis massa ac rutrum faucibus. Phasellus tristique magna eu congue lobortis. Suspendisse facilisis rhoncus viverra. Nam scelerisque tortor justo.
-        p Duis ullamcorper, arcu vitae ullamcorper gravida, dolor leo semper neque, a pellentesque urna libero venenatis odio. Morbi dolor mi, ullamcorper a diam id, porttitor mollis felis. Morbi cursus purus at porttitor tempus.
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis massa ac rutrum faucibus. Phasellus tristique magna eu congue lobortis. Suspendisse facilisis rhoncus viverra. Nam scelerisque tortor justo.
+    div.about
+
+        div.intro
+            img(src="/img/zoedewinter.jpg" alt="Zoë De Winter")
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis massa ac rutrum faucibus. Phasellus tristique magna eu congue lobortis. Suspendisse facilisis rhoncus viverra. Nam scelerisque tortor justo.
+            p Duis ullamcorper, arcu vitae ullamcorper gravida, dolor leo semper neque, a pellentesque urna libero venenatis odio. Morbi dolor mi, ullamcorper a diam id, porttitor mollis felis. Morbi cursus purus at porttitor tempus.
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis massa ac rutrum faucibus. Phasellus tristique magna eu congue lobortis. Suspendisse facilisis rhoncus viverra. Nam scelerisque tortor justo.
 
 
-    h2 Exhibitions
-    div(class="row")
-        div(class="column three")
-            p
-                strong De drie Koninklijke meesters
-                br
-                | WM Gallery, Antwerpen
-                br
-                | 02/08/2013-02/09/2013
-        div(class="column three")
-            p
-                strong ART GENT 2012
-                br
-                | Marc Van Meensel Gallery, Gent
-                br
-                | 30/11/2012- 03/12/2012
-        div(class="column three")
-            p
-                strong GENTHOF WONDERFUL WORLD 2012
-                br
-                | Galerie Pinsart en 44 Gallery, Brugge
-                br
-                | 13/07/2012- 12/08/2012
-    div(class="row")
-        div(class="column three")
-            p
-                strong LILLE ART FAIR
-                br
-                | Marc Van Meensel Gallery Lille Grand Palais, Lille
-                br
-                | 12/04/2012-16/04/2012
-        div(class="column three")
-            p
-                strong AFFORDABLE ART FAIR
-                br
-                | selected 'young talent' Tour en Taxis, Brussel
-                br
-                | 9/02/2012-12/02/2012
-        div(class="column three")
-            p
-                strong CUTTING EDGE WOMEN
-                br
-                | Verbeke Foudation, Kemzeke
-                br
-                | 20/11/2011 - 18/03/2012
-    h2 Education
-    div(class="row")
-        div(class="column three")
-            p
-                | 2011-2013
-                br
-                strong Teacher of Fine Arts
-                br
-                strong Royal Academy of Fine Arts
-                br
-                | Antwerp, Belgium
-                br
-                | With distinction
-        div(class="column three")
-            p
-                | 2010-2011
-                br
-                strong Master of Fine Art in Painting
-                br
-                strong Royal Academy of Fine Arts
-                br
-                | Antwerp, Belgium
-                br
-                | With great distinction
-        div(class="column three")
-            p
-                | 2008-2010
-                br
-                strong Bachelor of Fine Art in Painting
-                br
-                strong Royal Academy of Fine Arts
-                br
-                | Antwerp, Belgium
-                br
-                | With distinction
+        h2 Exhibitions
+        div.row.exhibitions
+            div.column.three
+                p
+                    strong De drie Koninklijke meesters
+                    br
+                    | WM Gallery, Antwerpen
+                    br
+                    | 02/08/2013-02/09/2013
+            div.column.three
+                p
+                    strong ART GENT 2012
+                    br
+                    | Marc Van Meensel Gallery, Gent
+                    br
+                    | 30/11/2012- 03/12/2012
+            div.column.three
+                p
+                    strong GENTHOF WONDERFUL WORLD 2012
+                    br
+                    | Galerie Pinsart en 44 Gallery, Brugge
+                    br
+                    | 13/07/2012- 12/08/2012
+        div.row.exhibitions
+            div.column.three
+                p
+                    strong LILLE ART FAIR
+                    br
+                    | Marc Van Meensel Gallery Lille Grand Palais, Lille
+                    br
+                    | 12/04/2012-16/04/2012
+            div.column.three
+                p
+                    strong AFFORDABLE ART FAIR
+                    br
+                    | selected 'young talent' Tour en Taxis, Brussel
+                    br
+                    | 9/02/2012-12/02/2012
+            div.column.three
+                p
+                    strong CUTTING EDGE WOMEN
+                    br
+                    | Verbeke Foudation, Kemzeke
+                    br
+                    | 20/11/2011 - 18/03/2012
+        h2 Education
+        div.row.education
+            div.column.three
+                p
+                    | 2011-2013
+                    br
+                    strong Teacher of Fine Arts
+                    br
+                    strong Royal Academy of Fine Arts
+                    br
+                    | Antwerp, Belgium
+                    br
+                    | With distinction
+            div.column.three
+                p
+                    | 2010-2011
+                    br
+                    strong Master of Fine Art in Painting
+                    br
+                    strong Royal Academy of Fine Arts
+                    br
+                    | Antwerp, Belgium
+                    br
+                    | With great distinction
+            div.column.three
+                p
+                    | 2008-2010
+                    br
+                    strong Bachelor of Fine Art in Painting
+                    br
+                    strong Royal Academy of Fine Arts
+                    br
+                    | Antwerp, Belgium
+                    br
+                    | With distinction

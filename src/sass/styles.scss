@@ -5,7 +5,7 @@ body {
 
   font-family: 'Terminal Dosis Light', sans-serif;
 
-  &.line{
+  &.line {
     @media (min-width: 721px) {
       background: {
         image: url('/img/line.png');
@@ -129,7 +129,7 @@ header {
 
     nav {
       ul {
-        margin-top: 160px;
+        margin-top: 150px;
       }
       li a {
         font-size: 35px;
@@ -293,41 +293,57 @@ header {
 
 /* about */
 .about {
-  margin: {
-    bottom: 25px
-  }
-  &:after {
-    content: " ";
-    clear: both;
-    display: table;
-  }
-  img {
-    float: right;
+
+  .intro {
     margin: {
-      bottom: 25px;
-      left: 50px;
+      bottom: 25px
     }
-    width: 150px;
-    border: 10px solid #dfdfdf;
-    box-shadow: 0 0 35px 0 rgba(119, 119, 119, .25);
-    border-radius: 3px;
-    box-sizing: border-box;
-  }
-  p {
-    text-align: justify;
-    margin: {
-      bottom: 15px;
+    &:after {
+      content: " ";
+      clear: both;
+      display: table;
     }
-    line-height: 140%;
+    img {
+      float: right;
+      margin: {
+        bottom: 25px;
+        left: 50px;
+      }
+      width: 150px;
+      border: 10px solid #dfdfdf;
+      box-shadow: 0 0 35px 0 rgba(119, 119, 119, .25);
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+    p {
+      text-align: justify;
+      margin: {
+        bottom: 15px;
+      }
+      line-height: 140%;
+    }
   }
 
   @media (max-width: 480px) {
-    img {
-      float: none;
-      margin: {
-        left: 0;
+    .intro {
+      img {
+        float: none;
+        margin: {
+          left: 0;
+        }
+        width: 100%;
       }
-      width: 100%;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .education,
+    .exhibitions {
+      p {
+        text: {
+          align: center;
+        }
+      }
     }
   }
 
@@ -346,6 +362,127 @@ header {
     }
 
   }
+}
+
+/* selected work */
+.selectedwork {
+  .topic {
+    blockquote {
+      margin: {
+        left: 20px;
+      }
+      padding: {
+        left: 20px;
+      }
+      border-left: 2px solid #aaa;
+      display: block;
+      margin: {
+        bottom: 20px;
+      }
+      p {
+        font-style: italic;
+        margin: {
+          left: 0;
+        }
+      }
+    }
+    p {
+      margin: {
+        left: 20px;
+      }
+      &.tech {
+        letter-spacing: 1px;
+        word-spacing: 1px;
+        font-size: 0.8em;
+        margin: {
+          bottom: 20px;
+        }
+      }
+    }
+    ul {
+      margin: {
+        left: 20px;
+      }
+      list-style: none;
+      display: flex;
+
+      li {
+        margin: 0 10px;
+        &:last-child {
+          margin: {
+            right: 0;
+          }
+        }
+        &:first-child {
+          margin: {
+            left: 0;
+          }
+        }
+        a {
+          display: block;
+          border: none;
+          img {
+            display: block;
+            width: 100%;
+            border-radius: 2px;
+            box-shadow: 0 0 35px 0 rgba(119, 119, 119, .5);
+          }
+
+          &:hover {
+            border: none;
+            img {
+              box-shadow: 0 0 35px 0 rgba(119, 119, 119, .75);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 720px) {
+
+    .topic {
+      blockquote {
+        margin: {
+          left: 0;
+        }
+      }
+      p {
+        margin: {
+          left: 0;
+        }
+        &.tech {
+          text: {
+            align: center;
+          }
+        }
+      }
+      ul {
+        margin: {
+          left: 0;
+        }
+      }
+
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    .topic {
+      ul {
+        display: block;
+        li,
+        li:first-child,
+        li:last-child {
+          display: block;
+          width: 90%;
+          margin: 0 auto 40px auto;
+        }
+      }
+
+    }
+  }
+
 }
 
 /*	FOOTER

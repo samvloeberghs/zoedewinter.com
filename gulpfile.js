@@ -15,6 +15,7 @@ var gulp = require('gulp'),
  * Directories here
  */
 var paths = {
+    src: './src/',
     public: './public/',
     sass: './src/sass/',
     css: './public/css/',
@@ -58,6 +59,7 @@ gulp.task('rebuild', ['pug'], function () {
  */
 gulp.task('browser-sync', ['sass', 'pug'], function () {
     browserSync({
+        port: 4000,
         server: {
             baseDir: paths.public
         },
@@ -104,6 +106,17 @@ gulp.task('img', function () {
         }));
 });
 
+gulp.task('other', function () {
+    return gulp.src([
+        paths.src + 'browserconfig.xml',
+        paths.src + 'manifest.json'
+    ])
+        .pipe(gulp.dest(paths.public))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+});
+
 
 /**
  * Watch scss files for changes & recompile
@@ -117,7 +130,7 @@ gulp.task('watch', function () {
 });
 
 // Build task compile sass and pug.
-gulp.task('build', ['sass', 'js', 'img', 'pug']);
+gulp.task('build', ['sass', 'js', 'img', 'other', 'pug']);
 
 /**
  * Default task, running just `gulp` will compile the sass,

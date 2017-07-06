@@ -40,8 +40,24 @@ body {
 
 }
 
+@mixin clearselection {
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  text-decoration: none;
+  &::selection {
+    background: transparent;
+  }
+}
+
 /*	HEADER
 –––––––––––––––––––––––––––*/
+*::selection {
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+}
 
 header {
 
@@ -63,9 +79,13 @@ header {
       height: 38px;
       width: 164px;
       text-indent: -99999px;
+
+      @include clearselection;
+
       &:hover,
+      &:focus,
       &:active {
-        border: none;
+        @include clearselection;
       }
     }
 
@@ -104,6 +124,32 @@ header {
         &.active {
           border: none;
           text-decoration: line-through;
+        }
+
+        &.active {
+          margin: {
+            bottom: 15px;
+          }
+        }
+
+      }
+
+      &.active {
+        ul {
+          margin: {
+            left: 20px;
+          }
+
+          a {
+            font-size: 16px;
+            line-height: 26px;
+            padding: 1px 5px;
+
+            &.active {
+              margin: 0;
+            }
+
+          }
         }
       }
 
@@ -171,9 +217,13 @@ header {
       z-index: 1000;
       text-indent: -9999px;
       border: none;
+
+      @include clearselection;
+
       &:hover,
+      &:focus,
       &:active {
-        border: none;
+        @include clearselection;
       }
     }
 
@@ -195,6 +245,16 @@ header {
         a {
           display: block;
           text-align: center;
+        }
+
+        &.active {
+
+          ul {
+            margin: 0;
+            li {
+
+            }
+          }
         }
 
       }
@@ -228,15 +288,32 @@ header {
     }
 
   }
+
+  @media (orientation: landscape) and (max-width: 960px) and (min-width: 480px) {
+    nav {
+      ul {
+        margin: {
+          top: 85px;
+        }
+        column-count: 2;
+        li {
+          ul {
+            column-count: 1;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 /*	CONTENT WRAPPER
 –––––––––––––––––––––––––––*/
 
 #wrapper {
-  margin: 120px 40px 73px 250px;
-  width: calc(100% - 290px);
-  max-width: 900px;
+  margin: 120px 40px 73px 300px;
+  width: calc(100% - 340px);
+  max-width: 800px;
 
   .row {
     clear: both;
@@ -272,7 +349,27 @@ header {
 
   @media (max-width: 720px) {
 
-    margin: 92px 20px 82px 20px;
+    margin: 92px 20px 40px 20px;
+    width: calc(100% - 40px);
+
+    .row {
+      .column {
+        width: 100% !important;
+        margin: {
+          right: 0;
+          bottom: 25px;
+        }
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+  }
+
+  @media (max-width: 480px) {
+
+    margin: 92px 20px 102px 20px;
     width: calc(100% - 40px);
 
     .row {
@@ -366,19 +463,31 @@ header {
 
 /* selected work */
 .selectedwork {
+  margin: {
+    bottom: 40px;
+  }
   .topic {
+    h2 {
+      display: inline-block;
+      span {
+        background: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        padding: 5px 10px;
+      }
+      margin: {
+        bottom: 40px;
+      }
+    }
     blockquote {
       margin: {
         left: 20px;
+        bottom: 40px;
       }
       padding: {
         left: 20px;
       }
       border-left: 2px solid #aaa;
       display: block;
-      margin: {
-        bottom: 20px;
-      }
       p {
         font-style: italic;
         margin: {
@@ -395,28 +504,25 @@ header {
         word-spacing: 1px;
         font-size: 0.8em;
         margin: {
-          bottom: 20px;
+          bottom: 40px;
         }
       }
     }
     ul {
       margin: {
-        left: 20px;
+        left: 10px;
       }
+      padding: 0;
       list-style: none;
       display: flex;
+      flex-flow: row wrap;
 
       li {
-        margin: 0 10px;
-        &:last-child {
-          margin: {
-            right: 0;
-          }
-        }
-        &:first-child {
-          margin: {
-            left: 0;
-          }
+        flex: 0 1 calc(20% - 20px);
+        margin: {
+          right: 10px;
+          left: 10px;
+          bottom: 20px;
         }
         a {
           display: block;
@@ -442,6 +548,11 @@ header {
   @media (max-width: 720px) {
 
     .topic {
+      h2 {
+        span {
+          line-height: 50px;
+        }
+      }
       blockquote {
         margin: {
           left: 0;
@@ -460,6 +571,25 @@ header {
       ul {
         margin: {
           left: 0;
+        }
+      }
+
+    }
+  }
+
+  @media (max-width: 320px) {
+
+    .topic {
+      h2 {
+        font-size: 1em;
+        margin: {
+          bottom: 20px;
+        }
+      }
+
+      blockquote {
+        margin: {
+          bottom: 20px;
         }
       }
 

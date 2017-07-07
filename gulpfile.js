@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     prefix = require('gulp-autoprefixer'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
+    exec = require('gulp-exec'),
     browserSync = require('browser-sync');
 
 /*
@@ -89,7 +90,10 @@ gulp.task('sass', function () {
 
 gulp.task('js', function () {
 
-    return gulp.src(paths.js.in + '*.js')
+    return gulp.src([
+        paths.js.in + 'jquery-3.2.1.min.js',
+        paths.js.in + 'script.js'
+    ])
         .pipe(concat('scripts.js'))
         .pipe(uglify())
         .pipe(gulp.dest(paths.js.out))
@@ -97,6 +101,18 @@ gulp.task('js', function () {
             stream: true
         }));
 });
+
+gulp.task('copysw', ['updatesw'], function () {
+    return gulp.src([
+        paths.js.in + 'service-worker.js',
+        paths.js.in + 'sw-toolbox.js',
+    ])
+        .pipe(gulp.dest(paths.public))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+});
+
 
 gulp.task('img', function () {
     return gulp.src(paths.img.in + '**/*')
@@ -117,6 +133,22 @@ gulp.task('other', function () {
         }));
 });
 
+gulp.task('updatesw', function () {
+    var options = {
+        continueOnError: false, // default = false, true means don't emit error event
+        pipeStdout: false, // default = false, true means stdout is written to file.contents
+        customTemplatingThing: "test" // content passed to gutil.template()
+    };
+    var reportOptions = {
+        err: true, // default = true, false means don't write err
+        stderr: true, // default = true, false means don't write stderr
+        stdout: true // default = true, false means don't write stdout
+    };
+    return gulp.src(paths.js.in + 'service-worker.js')
+        .pipe(exec('node ./scripts/update-sw-version.js', options))
+        .pipe(exec.reporter(reportOptions));
+});
+
 
 /**
  * Watch scss files for changes & recompile
@@ -130,7 +162,7 @@ gulp.task('watch', function () {
 });
 
 // Build task compile sass and pug.
-gulp.task('build', ['sass', 'js', 'img', 'other', 'pug']);
+gulp.task('build', ['sass', 'js', 'copysw', 'img', 'other', 'pug']);
 
 /**
  * Default task, running just `gulp` will compile the sass,

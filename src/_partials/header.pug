@@ -9,8 +9,8 @@ header
             block link
                 -var selected = ''; //default
 
-            -var menu = { 'Selected work': 'selected-work.html', 'Art advisory': 'art-advisory.html', 'About': 'about.html', 'Contact': 'contact.html' };
-            //-var menu = { 'Selected work': 'selected-work', 'Art advisory': 'art-advisory', 'About': 'about', 'Contact': 'contact' };
+            //-var menu = { 'Selected work': 'selected-work.html', 'Art advisory': 'art-advisory.html', 'About': 'about.html', 'Contact': 'contact.html' };
+            -var menu = { 'Selected work': 'selected-work', 'Art advisory': 'art-advisory', 'About': 'about', 'Contact': 'contact' };
             each val, key in menu
 
                 if selected === val
@@ -21,8 +21,8 @@ header
                                 block sublink
                                     -var subselected = ''; // default
 
-                                -var work = { 'Outside the lines': 'outside-the-lines.html', 'Series of landscapes': 'series-of-landscapes.html'};
-                                //-var work = { 'Outside the lines': 'outside-the-lines', 'Series of landscapes': 'series-of-landscapes'};
+                                //-var work = { 'Outside the lines': 'outside-the-lines.html', 'Series of landscapes': 'series-of-landscapes.html'};
+                                -var work = { 'Outside the lines': 'outside-the-lines', 'Series of landscapes': 'series-of-landscapes'};
                                 each val, key in work
                                     li
                                         if subselected === val

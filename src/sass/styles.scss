@@ -289,7 +289,7 @@ header {
 
   }
 
-  @media (orientation: landscape) and (max-width: 960px) and (min-width: 480px) {
+  @media (orientation: landscape) and (max-width: 720px) and (min-width: 480px) {
     nav {
       ul {
         margin: {
@@ -562,15 +562,40 @@ header {
         margin: {
           left: 0;
         }
+      }
+      ul {
+        margin: {
+          left: -10px;
+          right: -10px;
+        }
+      }
+
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    .topic {
+
+      ul {
+        display: block;
+        li,
+        li:first-child,
+        li:last-child {
+          display: block;
+          width: 90%;
+          margin: 0 auto 40px auto;
+        }
+      }
+
+      p {
+        margin: {
+          left: 0;
+        }
         &.tech {
           text: {
             align: center;
           }
-        }
-      }
-      ul {
-        margin: {
-          left: 0;
         }
       }
 
@@ -590,23 +615,6 @@ header {
       blockquote {
         margin: {
           bottom: 20px;
-        }
-      }
-
-    }
-  }
-
-  @media (max-width: 480px) {
-
-    .topic {
-      ul {
-        display: block;
-        li,
-        li:first-child,
-        li:last-child {
-          display: block;
-          width: 90%;
-          margin: 0 auto 40px auto;
         }
       }
 
